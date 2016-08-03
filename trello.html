@@ -1,0 +1,282 @@
+<!DOCTYPe html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<style type="text/css">
+	#user_input1 {
+    	height: 80px;
+    	font-size: 100%;
+		}
+
+		#user_input2 {
+    	height: 80px;
+    	font-size: 100%;
+		}
+		
+		#user_input3 {
+    	height: 80px;
+    	font-size: 100%;
+		}
+
+		textarea {
+    padding: 8px;
+    margin-top: 20px;
+    margin-right: 80px;
+</style>
+<script type="text/javascript">
+	
+	var items1 = [];
+    var items2 = [];
+    var items3 = [];
+
+    function bindKeyUp1() {
+    	if (event.keyCode == 13) {
+        	acceptInput1();
+        }
+    }
+
+    function bindKeyUp2() {
+        if (event.keyCode == 13) {
+        	acceptInput2();
+        }
+    }
+
+	function bindKeyUp3() {
+        if (event.keyCode == 13) {
+        	acceptInput3();
+        }
+    }
+
+    function acceptInput1() {
+        var comp = document.getElementById("user_input1").value;
+        if(comp == "\n")
+        {
+          alert("Nothing to be added!");
+        }
+        else
+        {
+          checkForAlreadyExistingString1(comp);
+          displayArray1();
+        }
+      }
+
+    function acceptInput2() {
+        var comp = document.getElementById("user_input2").value;
+        if(comp == "\n")
+        {
+          alert("Nothing to be added!");
+        }
+        else
+        {
+          checkForAlreadyExistingString2(comp);
+          displayArray2();
+        }
+    }
+
+    function acceptInput3() {
+        var comp = document.getElementById("user_input3").value;
+        if(comp == "\n")
+        {
+          alert("Nothing to be added!");
+        }
+        else
+        {
+          checkForAlreadyExistingString3(comp);
+          displayArray3();
+        }
+    }
+
+    function checkForAlreadyExistingString1(comp)  {
+        document.getElementById("user_input1").value = "";
+        if(items1.length <1)
+        {
+          items1.push(comp);
+        }
+        else
+        {
+          for( var i =0 ; i<items1.length ; i++ )
+          {
+            var check = false;
+            if(items1[i].toUpperCase().localeCompare(comp.toUpperCase()) == 0 )
+            {
+              alert(comp + " already exist!");
+              break;
+            }
+            else
+            {
+              check = true;
+            }
+          }
+          if(check == true)
+          {
+            items1.push(comp); 
+          }
+        }
+    }
+
+    function checkForAlreadyExistingString2(comp)
+    {
+        document.getElementById("user_input2").value = "";
+        if(items2.length <1)
+        {
+          items2.push(comp);
+        }
+        else
+        {
+          for( var i =0 ; i<items2.length ; i++ )
+          {
+            var check = false;
+            if(items2[i].toUpperCase().localeCompare(comp.toUpperCase()) == 0 )
+            {
+              alert(comp + " already exist!");
+              break;
+            }
+            else
+            {
+              check = true;
+            }
+          }
+          if(check == true)
+          {
+            items2.push(comp); 
+          }
+        }
+    }
+
+    function checkForAlreadyExistingString3(comp)
+    {
+        document.getElementById("user_input3").value = "";
+        if(items3.length <1)
+        {
+          items3.push(comp);
+        }
+        else
+        {
+          for( var i =0 ; i<items3.length ; i++ )
+          {
+            var check = false;
+            if(items3[i].toUpperCase().localeCompare(comp.toUpperCase()) == 0 )
+            {
+              alert(comp + " already exist!");
+              break;
+            }
+            else
+            {
+              check = true;
+            }
+          }
+          if(check == true)
+          {
+            items3.push(comp); 
+          }
+        }
+    }
+
+    function displayArray1()
+    {
+        var localItems = "";
+        for(var i =0 ; i<items1.length ; i++)
+        {
+          localItems = localItems + "<div id='disp1'>" + "<p>" +  items1[i] + "</p>" + "<button onclick='deleteItem1(this)'>Delete</button>" +  "<button onclick='moveItem12(this)'>=></button>" + "</p>" + "</div>" ;
+        }
+        document.getElementById('display1').innerHTML= localItems;
+    }
+
+    function displayArray2()
+    {
+        var localItems = "";
+        for(var i =0 ; i<items2.length ; i++)
+        {
+          localItems = localItems + "<div id='disp2'>" + "<p>" +  items2[i] + "</p>" + "<button onclick='deleteItem2(this)'>Delete</button>" +  "<button onclick='moveItem23(this)'>=></button>" + "</p>" + "</div>" ;
+        }
+        document.getElementById('display2').innerHTML= localItems;
+    }
+
+    function displayArray3()
+    {
+        var localItems = "";
+        for(var i =0 ; i<items3.length ; i++)
+        {
+          localItems = localItems + "<div id='disp3'>" + "<p>" +  items3[i] + "</p>" + "<button onclick='deleteItem3(this)'>Done</button>" + "</p>" + "</div>" ;
+        }
+        document.getElementById('display3').innerHTML= localItems;
+    }
+
+    function deleteItem1(obj) {
+    	debugger
+    	for (var i =0 ; i<items1.length ; i++) {
+    		if (items1[i] === obj.previousElementSibling.innerHTML) {
+        		items1.splice(i, 1);
+        		event.target.parentElement.remove();
+    		}
+		}
+    }
+
+    function deleteItem2(obj) {
+    	for (var i =0 ; i<items2.length ; i++) {
+    		if (items2[i] === obj.previousElementSibling.innerHTML) {
+        		items2.splice(i, 1);
+        		event.target.parentElement.remove();
+    		}
+		}
+    }
+
+    function deleteItem3(obj) {
+    	for (var i =0 ; i<items3.length ; i++) {
+    		if (items3[i] === obj.previousElementSibling.innerHTML) {
+        		items3.splice(i, 1);
+        		event.target.parentElement.remove();
+    		}
+		}
+    }
+
+    function moveItem12(obj) {	
+    	items2.push(event.target.parentElement.childNodes[0].innerHTML);
+    	event.target.parentElement.remove();
+    	for (var i =0 ; i<items1.length ; i++) {
+    		if (items1[i] === obj.previousElementSibling.previousElementSibling.innerHTML) {
+        		items1.splice(i, 1);
+        		
+    		}
+		}
+      	displayArray2();
+      	displayArray1();
+    }
+
+    function moveItem23(obj) {	
+    	items3.push(event.target.parentElement.childNodes[0].innerHTML);
+    	event.target.parentElement.remove();
+    	for (var i =0 ; i<items2.length ; i++) {
+    		if (items2[i] === obj.previousElementSibling.previousElementSibling.innerHTML) {
+        		items2.splice(i, 1);
+        		
+    		}
+		}
+      	displayArray2();
+      	displayArray3();
+    }
+
+</script>
+
+<div overflow:hidden; class="main">
+ 	<div style="float:left; width: 250px; margin-left: 130px;  class="first_list"> 
+ 		<textarea name="message" id="user_input1" cols="40" rows="5" placeholder="Enter new task!" onkeyup="bindKeyUp1()"></textarea>
+ 			<div id = 'display1'></div>
+	</div>
+
+ 	<div style="float:left; width: 250px; margin-left: 130px; class="second_list">
+ 		<textarea name="message" id="user_input2" cols="40" rows="5" placeholder="Enter task in progress!" onkeyup="bindKeyUp2()"></textarea>
+		<div id='display2'></div> 			
+ 	</div>
+
+ 	<div  style="float:left; width: 250px; margin-left: 130px;class="third_list">
+ 		<textarea name="message" id="user_input3" cols="40" rows="5" placeholder="Enter task done!" onkeyup="bindKeyUp3()" ></textarea>
+ 		<div id='display3'></div> 			
+ 	</div>
+ </div>
+
+</body>
+</html>
