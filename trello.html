@@ -7,24 +7,50 @@
 <body>
 <style type="text/css">
 	#user_input1 {
+		margin-bottom: 30px;
     	height: 80px;
     	font-size: 100%;
-		}
+	}
 
-		#user_input2 {
-    	height: 80px;
-    	font-size: 100%;
-		}
+	#user_input2 {
+		margin-bottom: 30px;
+   		height: 80px;
+   		font-size: 100%;
+   	}
 		
-		#user_input3 {
+	#user_input3 {
+		margin-bottom: 30px;
     	height: 80px;
-    	font-size: 100%;
-		}
+   		font-size: 100%;
+	}
 
-		textarea {
-    padding: 8px;
-    margin-top: 20px;
-    margin-right: 80px;
+	textarea {
+   		padding: 8px;
+   		margin-top: 20px;
+   		margin-right: 80px;
+   	}
+
+   	#disp1 {
+   		width: 300px;
+   		background-color: #B2DFDB;
+   		margin-bottom: 30px;
+   		padding: 10px;
+    }
+
+    #disp2 {
+   		width: 300px;
+   		background-color: #B2DFDB;
+   		margin-bottom: 30px;
+   		padding: 10px;
+    }
+
+    #disp3 {
+   		width: 300px;
+   		background-color: #B2DFDB;
+   		margin-bottom: 30px;
+   		padding: 10px;
+    }
+
 </style>
 <script type="text/javascript">
 	
@@ -206,7 +232,6 @@
     }
 
     function deleteItem1(obj) {
-    	debugger
     	for (var i =0 ; i<items1.length ; i++) {
     		if (items1[i] === obj.previousElementSibling.innerHTML) {
         		items1.splice(i, 1);
